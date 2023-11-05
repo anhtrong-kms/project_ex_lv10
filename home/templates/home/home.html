@@ -1,0 +1,70 @@
+{% extends "home/base.html" %}
+
+{% block title %}Vua áo Đấu{% endblock title %}
+{% block home %}
+
+
+<div class="row" style='margin-top: 50px;'>
+  <h2 style='color: red;text-align:center'>LOẠI SẢN PHẨM BẠN MUỐN TÌM</h2>
+
+{% comment %} category {% endcomment %}
+<div class="row" style='justify-content: space-evenly; margin-top: 50px; '>
+  {% for category in categorys  %}
+  <div class="card" style="width: 18rem; background-color:beige;">
+  <a href='{% url "category" %}?category={{category.name}}'>
+    <img src="{{category.image.url}}" class="card-img-top" alt="..." style='    border-radius: 50%'>
+  </a>
+    <div class="card-body">
+      <h5 class="card-title text-center text-info">{{category.name}}</h5>
+    </div>
+  </div>
+  {% endfor %}
+
+</div>
+
+</div>
+
+{% comment %} Sản phẩm đội tuyển  {% endcomment %}
+<br><br><br>
+<div class="row">
+  <h2 style='color: red;text-align:center'>ÁO ĐỘI TUYỂN</h2>
+
+  {% for product in  productCLB %}
+  <div class="card" style="width: 18rem;">
+      <img src="{{product.image.url}}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{product.name}}</h5>
+        <h5 class="card-title">{{product.price}}</h5>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+  {% endfor %}
+
+
+</div>
+{% comment %}  {% endcomment %}
+<br><br><br>
+<div class="row">
+    {% for product in  products %}
+    
+    <div class="card" style="width: 18rem;">
+        <img src="{{product.image.url}}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{product.name}}</h5>
+          <h5 class="card-title">{{product.price}}</h5>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+    
+
+    
+    {% endfor %}
+</div>
+
+
+
+
+
+
+
+{% endblock home %}

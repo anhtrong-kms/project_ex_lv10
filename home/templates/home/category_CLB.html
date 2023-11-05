@@ -1,0 +1,17 @@
+{% extends "home/base.html" %}
+{% block category_CLB %}
+
+<div class="row">
+{% for product in product_category  %}
+<div class="card" style="width: 18rem;">
+    <img src="{{product.image.url}}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{product.name}}</h5>
+      <h5 class="card-title">{{product.price}}</h5>
+      <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+</div>
+{% endfor %}
+</div>
+
+{% endblock category_CLB %}
